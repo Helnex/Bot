@@ -1,6 +1,6 @@
 module.exports = {
-    KeyboardOptions: {
-        reply_markup: {
+    KeyboardOptions:{
+        reply_markup:  {
             inline_keyboard: [
                 [
                     {text: 'Текст кнопки', callback_data: 'абоба'}
