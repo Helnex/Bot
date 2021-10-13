@@ -22,7 +22,6 @@ const startApp = () => {
         }
         bot.setMyCommands([
             {command: '/start', description: 'Приветствие'},
-            {command: '/info', description: 'Получить  информацию о пользователе'},
         ])
         if (text === '/start') {
             return bot.sendMessage (chatId, `Привет, ${UserName}\nВыбери команду для начала работы:`, {
