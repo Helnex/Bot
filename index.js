@@ -8,10 +8,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const bot = new TelegramApi(token, {polling:true});
 //module.exports = debug
 
-const startApp = () => {
-    //const text = msg.text;
-    //const chatId = msg.chat.id;
-    
+const startApp = () => {    
     bot.on('message', async msg => {
         console.log('СТАРТУЕМ')
         const text = msg.text;
@@ -32,7 +29,5 @@ const startApp = () => {
         }
         return bot.sendMessage(chatId, `Я тебя не понимаю!Попробуй еще раз`);
     })
-    
 }
 startApp()
-
