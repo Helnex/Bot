@@ -1,33 +1,85 @@
 const TelegramApi = require('node-telegram-bot-api');
-const {Home, Theme} = require('./bot_modules/keyboardButtons');
-const keyboard = require('./bot_modules/keyboard')
+const keyboardBtn = require('./bot_modules/keyboardButtons');
+const keyboard = require('./bot_modules/keyboard');
 const debug = require('./bot_modules/debugInfo');
-const token = require('./TOKEN');
-const TelegramBot = require('node-telegram-bot-api');
-
+const {token, db_url} = require('./config');
+const mongoose = require('mongoose');
 const bot = new TelegramApi(token, {polling:true});
+const {ThemeFunc, functionsButtons} = require('./models/theme.functions.model');
+const {ThemeRadicals , radicalsButtons} = require('./models/theme.radicals.model');
+//const themeIneq = require('./models/theme.inequalities.model');
 //module.exports = debug
+mongoose.connect(db_url, {
+    useNewUrlParser: true
+})
+    .then (() => console.log('Бд работает'))
+    .catch ((err) => console.log(err))
 
-const startApp = () => {    
-    bot.on('message', async msg => {
-        console.log('СТАРТУЕМ')
-        const text = msg.text;
-        const chatId = msg.chat.id;
-        let UserName = msg.from.first_name; 
-        switch(text) {
 
-        }
-        bot.setMyCommands([
-            {command: '/start', description: 'Приветствие'},
-        ])
-        if (text === '/start') {
-            return bot.sendMessage (chatId, `Привет, ${UserName}\nВыбери команду для начала работы:`, {
-                reply_markup: {
-                    keyboard: keyboard.Home
-                }
-            })
-        }
-        return bot.sendMessage(chatId, `Я тебя не понимаю!Попробуй еще раз`);
-    })
-}
-startApp()
+
+
+bot.on('message', async (msg) => {
+    const text = msg.text;
+    const chatId = msg.chat.id;
+    let UserName = msg.from.first_name;
+
+    const findDatabase = (themeName, findName) => {
+        themeName.findOne({name: findName}, function(err, docs) {
+        if(err) return console.log(err);
+        let resultLinks = docs.links
+        let resultDescription = docs.short_description;
+    bot.sendMessage(chatId, `${resultDescription}
+${resultLinks}`, {
+            parse_mode: 'HTML',
+            reply_markup: { keyboard: keyboard.BackToHome },
+        });
+        })
+    }
+    const callbackData = () => {
+        bot.on('callback_query', msg => {
+          console.log(msg)
+          const data = msg.data;
+          const chatId = msg.message.chat.id;
+          switch (data) {
+            case 'func_1':
+                process.once(findDatabase(ThemeFunc, 'Свойства функции'));
+                break;
+            case 'func_2':
+                process.once(findDatabase(ThemeFunc, 'Графики функции'));
+                break;
+            case 'func_3':
+                process.once(findDatabase(ThemeFunc, 'Функция: область определения и область значений'));
+                break;
+            case 'func_4':
+                process.once(findDatabase(ThemeFunc, 'Геометрические преобразования'));
+                break;
+            
+            case 'rad_1':
+                process.once(findDatabase(ThemeRadicals, 'Квадратный корень и его свойства'));
+                break;
+        }})
+    }
+    callbackData()
+    switch (text) {
+        case keyboardBtn.Home.functions:
+            bot.sendMessage(chatId, 'Что именно тебя интересует?', functionsButtons);
+            break;
+        case keyboardBtn.Home.radicals: 
+        bot.sendMessage(chatId, 'Что именно тебя интересует?', radicalsButtons);
+        break;
+        case keyboardBtn.BackToHome:
+            bot.sendMessage(chatId, 'Может посмотришь что-то еще?', {
+                reply_markup: { keyboard: keyboard.Home}
+            });
+            break;
+    }    
+    bot.setMyCommands([
+            { command: '/start', description: 'Приветствие' },
+    ]);
+    if (text === '/start') {
+        return bot.sendMessage(chatId, `Привет, ${UserName}\nВыбери тему:`, {
+            reply_markup: { keyboard: keyboard.Home }      
+        });
+    }
+});
+
