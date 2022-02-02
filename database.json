@@ -1,0 +1,14 @@
+{   
+    "Theme_radicals": [
+        {
+            "name": "Таблица квадратов",
+            "short_description": "Краткое описание темы",
+            "links" : ""
+        },
+        {
+            "name": "Таблица кубов",
+            "short_description": "",
+            "links" : ""
+        }
+    ]
+}
