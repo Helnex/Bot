@@ -2,14 +2,19 @@ const TelegramApi = require('node-telegram-bot-api');
 const keyboardBtn = require('./bot_modules/keyboardButtons');
 const keyboard = require('./bot_modules/keyboard');
 const debug = require('./bot_modules/debugInfo');
-const {token, db_url} = require('./config');
+const {TOKEN, DB_URL} = require('./config');
 const mongoose = require('mongoose');
-const bot = new TelegramApi(token, {polling:true});
+//const bot = new TelegramApi(TOKEN, {polling:true});
+const bot = new TelegramApi(process.env.TOKEN, {polling:true});
+
 const {ThemeFunc, functionsButtons} = require('./models/theme.functions.model');
 const {ThemeRadicals , radicalsButtons} = require('./models/theme.radicals.model');
 //const themeIneq = require('./models/theme.inequalities.model');
 //module.exports = debug
-mongoose.connect(db_url, {
+/*mongoose.connect(DB_URL, {
+    useNewUrlParser: true
+})*/
+mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true
 })
     .then (() => console.log('Бд работает'))
