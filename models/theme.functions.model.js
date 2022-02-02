@@ -7,7 +7,9 @@ const keyboardBtn = require('../bot_modules/keyboardButtons');
 const ThemeSchema = new Schema ({
     name: String,
     links: [String],
-    short_description: String
+    short_description: String,
+    link_video: [String],
+    link_article: [String]
 })
 
 const functionsButtons = {

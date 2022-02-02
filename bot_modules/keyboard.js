@@ -1,6 +1,7 @@
 const keyboardButtons = require('./keyboardButtons')
 
 module.exports = {
+    BackToHome: [[keyboardButtons.BackToHome]],
     Home: [
         [keyboardButtons.Home.functions, keyboardButtons.Home.radicals, keyboardButtons.Home.sin,  keyboardButtons.Home.progression],
         [keyboardButtons.Home.inequalities, keyboardButtons.Home.statistics,],
@@ -23,5 +24,5 @@ module.exports = {
         [keyboardButtons.Theme_sin.sin_7,keyboardButtons.Theme_sin.sin_8,keyboardButtons.Theme_sin.sin_9,],
         [keyboardButtons.BackToHome]
     ],
-    BackToHome: [[keyboardButtons.BackToHome]],
+    
 }

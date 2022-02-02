@@ -26,8 +26,10 @@ bot.on('message', async (msg) => {
     const findDatabase = (themeName, findName) => {
         themeName.findOne({name: findName}, function(err, docs) {
         if(err) return console.log(err);
-        let resultLinks = docs.links
-        let resultDescription = docs.short_description;
+        /*let resultLinks = docs.links;
+        let resultDescription = docs.short_description;*/
+        let resultLinks = docs.link_video;
+        let resultDescription = docs.link_article;
     bot.sendMessage(chatId, `${resultDescription}
 ${resultLinks}`, {
             parse_mode: 'HTML',
