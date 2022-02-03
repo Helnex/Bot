@@ -18,11 +18,4 @@ module.exports = {
         [keyboardButtons.Theme_inequalities.ineq_1, keyboardButtons.Theme_inequalities.ineq_2,],
         [keyboardButtons.BackToHome]
     ],
-    Theme_sin : [
-        [keyboardButtons.Theme_sin.sin_1, keyboardButtons.Theme_sin.sin_2,keyboardButtons.Theme_sin.sin_3],
-        [keyboardButtons.Theme_sin.sin_4,keyboardButtons.Theme_sin.sin_5,keyboardButtons.Theme_sin.sin_6,],
-        [keyboardButtons.Theme_sin.sin_7,keyboardButtons.Theme_sin.sin_8,keyboardButtons.Theme_sin.sin_9,],
-        [keyboardButtons.BackToHome]
-    ],
-    
 }
