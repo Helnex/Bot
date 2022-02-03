@@ -10,9 +10,9 @@ const bot = new TelegramApi(process.env.TOKEN, {polling:true});
 const {ThemeFunc, functionsButtons} = require('./models/theme.functions.model');
 const {ThemeRadicals , radicalsButtons} = require('./models/theme.radicals.model');
 const {ThemeIneq, inequalitiesButtons} = require('./models/theme.inequalities.model');
-const {ThemeChance, chanceButtons} = require('./models/theme.inequalities.model');
-const {ThemeComb, combinatoricsButtons} = require('./models/theme.inequalities.model');
-const {ThemeProg, progressionButtons} = require('./models/theme.inequalities.model');
+const {ThemeChance, chanceButtons} = require('./models/theme.chance.model');
+const {ThemeComb, combinatoricsButtons} = require('./models/theme.combinatorics.model');
+const {ThemeProg, progressionButtons} = require('./models/theme.progression.model');
 
 //module.exports = debug
 /*mongoose.connect(DB_URL, {
