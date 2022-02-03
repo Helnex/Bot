@@ -9,7 +9,7 @@ const bot = new TelegramApi(process.env.TOKEN, {polling:true});
 
 const {ThemeFunc, functionsButtons} = require('./models/theme.functions.model');
 const {ThemeRadicals , radicalsButtons} = require('./models/theme.radicals.model');
-//const themeIneq = require('./models/theme.inequalities.model');
+const {ThemeIneq, inequalitiesButtons} = require('./models/theme.inequalities.model');
 //module.exports = debug
 /*mongoose.connect(DB_URL, {
     useNewUrlParser: true
@@ -33,8 +33,6 @@ bot.on('message', async (msg) => {
         if(err) return console.log(err);
         let resultLinks = docs.links;
         let resultDescription = docs.short_description;
-        /*let resultLinks = docs.link_video;
-        let resultDescription = docs.link_article;*/
     bot.sendMessage(chatId, `${resultDescription}
 ${resultLinks}`, {
             parse_mode: 'HTML',
@@ -64,6 +62,15 @@ ${resultLinks}`, {
             case 'rad_1':
                 process.once(findDatabase(ThemeRadicals, 'Квадратный корень и его свойства'));
                 break;
+            case 'rad_2':
+                process.once(findDatabase(ThemeRadicals, 'Кубический корень и его свойства'));
+                break;
+            case 'rad_3':
+                process.once(findDatabase(ThemeRadicals, 'Таблица квадратов'));
+            break;
+            case 'rad_4':
+                process.once(findDatabase(ThemeRadicals, 'Таблица кубов'));
+            break;
         }})
     }
     callbackData()
@@ -73,7 +80,10 @@ ${resultLinks}`, {
             break;
         case keyboardBtn.Home.radicals: 
         bot.sendMessage(chatId, 'Что именно тебя интересует?', radicalsButtons);
-        break;
+            break;
+        case keyboardBtn.Home.inequalities: 
+        bot.sendMessage(chatId, 'Что именно тебя интересует?', inequalitiesButtons);
+            break;
         case keyboardBtn.BackToHome:
             bot.sendMessage(chatId, 'Может посмотришь что-то еще?', {
                 reply_markup: { keyboard: keyboard.Home}
