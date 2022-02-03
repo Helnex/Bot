@@ -10,6 +10,10 @@ const bot = new TelegramApi(process.env.TOKEN, {polling:true});
 const {ThemeFunc, functionsButtons} = require('./models/theme.functions.model');
 const {ThemeRadicals , radicalsButtons} = require('./models/theme.radicals.model');
 const {ThemeIneq, inequalitiesButtons} = require('./models/theme.inequalities.model');
+const {ThemeChance, chanceButtons} = require('./models/theme.inequalities.model');
+const {ThemeComb, combinatoricsButtons} = require('./models/theme.inequalities.model');
+const {ThemeProg, progressionButtons} = require('./models/theme.inequalities.model');
+
 //module.exports = debug
 /*mongoose.connect(DB_URL, {
     useNewUrlParser: true
@@ -83,6 +87,15 @@ ${resultLinks}`, {
             break;
         case keyboardBtn.Home.inequalities: 
         bot.sendMessage(chatId, 'Что именно тебя интересует?', inequalitiesButtons);
+            break;
+        case keyboardBtn.Home.chance: 
+        bot.sendMessage(chatId, 'Что именно тебя интересует?', chanceButtons);
+            break;
+        case keyboardBtn.Home.combinatorics: 
+        bot.sendMessage(chatId, 'Что именно тебя интересует?', combinatoricsButtons);
+            break;
+        case keyboardBtn.Home.progression: 
+        bot.sendMessage(chatId, 'Что именно тебя интересует?', progressionButtons);
             break;
         case keyboardBtn.BackToHome:
             bot.sendMessage(chatId, 'Может посмотришь что-то еще?', {
