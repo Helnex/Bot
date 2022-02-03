@@ -14,8 +14,8 @@ const inequalitiesButtons = {
         inline_keyboard: [
             
             [{text: keyboardBtn.Theme_inequalities.ineq_1, callback_data: "ineq_1"}],
-            [{text: keyboardBtn.Theme_inequalities.ineq_1, callback_data: "ineq_2"}],
-            [{text: keyboardBtn.Theme_inequalities.ineq_1, callback_data: "ineq_3"}],
+            [{text: keyboardBtn.Theme_inequalities.ineq_2, callback_data: "ineq_2"}],
+            [{text: keyboardBtn.Theme_inequalities.ineq_3, callback_data: "ineq_3"}],
         ]
     },
 
