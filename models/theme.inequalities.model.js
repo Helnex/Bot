@@ -12,13 +12,13 @@ const ThemeSchema = new Schema ({
 const inequalitiesButtons = {
     reply_markup: {
         inline_keyboard: [
-            
             [{text: keyboardBtn.Theme_inequalities.ineq_1, callback_data: "ineq_1"}],
             [{text: keyboardBtn.Theme_inequalities.ineq_2, callback_data: "ineq_2"}],
             [{text: keyboardBtn.Theme_inequalities.ineq_3, callback_data: "ineq_3"}],
+            [{text: keyboardBtn.Theme_inequalities.ineq_2, callback_data: "ineq_4"}],
+            [{text: keyboardBtn.Theme_inequalities.ineq_3, callback_data: "ineq_5"}],
         ]
     },
-
 }
 const ThemeIneq = mongoose.model('inequalities', ThemeSchema)
 //database.Theme_inequalities.forEach(f => new ThemeIneq(f).save())
