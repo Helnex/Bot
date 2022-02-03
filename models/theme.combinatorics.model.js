@@ -17,6 +17,6 @@ const combinatoricsButtons = {
         ]
     },
 }
-const ThemeComb = mongoose.model('inequalities', ThemeSchema)
+const ThemeComb = mongoose.model('combinatorics', ThemeSchema)
 //database.Theme_combinatorics.forEach(f => new ThemeComb(f).save())
 module.exports = {ThemeComb, combinatoricsButtons}
