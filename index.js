@@ -75,30 +75,58 @@ ${resultLinks}`, {
             case 'rad_4':
                 process.once(findDatabase(ThemeRadicals, 'Таблица кубов'));
             break;
+
+            case 'chan_1':
+                process.once(findDatabase(ThemeChance, 'Определение вероятности'));
+                break;
+            case 'chan_2':
+                process.once(findDatabase(ThemeChance, 'Решение задач'));
+                break;
+
+            case 'comb_1':
+            process.once(findDatabase(ThemeComb, 'Определение'));
+                break;
+            case 'comb_2':
+            process.once(findDatabase(ThemeComb, 'Решение задач'));
+                break;
+
+            case 'ineq_1':
+            process.once(findDatabase(ThemeIneq, 'Решение квадратных уравнений'));
+                break;
+            case 'ineq_2':
+            process.once(findDatabase(ThemeIneq, 'Метод интервалов'));
+                break;
+
+            case 'prog_1':
+            process.once(findDatabase(ThemeProg, 'Определение и формулы'));
+                break;
+            case 'prog_2':
+            process.once(findDatabase(ThemeProg, 'Решение задач'));
+                break;
         }})
     }
     callbackData()
     switch (text) {
         case keyboardBtn.Home.functions:
-            bot.sendMessage(chatId, 'Что именно тебя интересует?', functionsButtons);
+            bot.sendMessage(chatId, 'Выбери тему:', functionsButtons);
             break;
         case keyboardBtn.Home.radicals: 
-        bot.sendMessage(chatId, 'Что именно тебя интересует?', radicalsButtons);
+        bot.sendMessage(chatId, 'Выбери тему:', radicalsButtons);
             break;
         case keyboardBtn.Home.inequalities: 
-        bot.sendMessage(chatId, 'Что именно тебя интересует?', inequalitiesButtons);
+        bot.sendMessage(chatId, 'Выбери тему:', inequalitiesButtons);
             break;
         case keyboardBtn.Home.chance: 
-        bot.sendMessage(chatId, 'Что именно тебя интересует?', chanceButtons);
+        bot.sendMessage(chatId, 'Выбери тему:', chanceButtons);
             break;
         case keyboardBtn.Home.combinatorics: 
-        bot.sendMessage(chatId, 'Что именно тебя интересует?', combinatoricsButtons);
+        bot.sendMessage(chatId, 'Выбери тему:', combinatoricsButtons);
             break;
         case keyboardBtn.Home.progression: 
-        bot.sendMessage(chatId, 'Что именно тебя интересует?', progressionButtons);
+        bot.sendMessage(chatId, 'Выбери тему:', progressionButtons);
             break;
         case keyboardBtn.BackToHome:
-            bot.sendMessage(chatId, 'Может посмотришь что-то еще?', {
+            bot.sendMessage(chatId, 'Хочешь посмотреть что-то еще?', {
                 reply_markup: { keyboard: keyboard.Home}
             });
             break;
@@ -107,7 +135,7 @@ ${resultLinks}`, {
             { command: '/start', description: 'Приветствие' },
     ]);
     if (text === '/start') {
-        return bot.sendMessage(chatId, `Привет, ${UserName}\nВыбери тему:`, {
+        return bot.sendMessage(chatId, `Привет, ${UserName}\nВыбери раздел:`, {
             reply_markup: { keyboard: keyboard.Home }      
         });
     }
