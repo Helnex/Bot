@@ -70,7 +70,11 @@ ${resultLinks}`, {
                 process.once(findDatabase(ThemeRadicals, 'Кубический корень и его свойства'));
                 break;
             case 'rad_3':
-                process.once(findDatabase(ThemeRadicals, 'Таблица квадратов'));
+                bot.sendPhoto({
+                    chatId: msg.chat.id,
+                    photo: 'https://ru.onlinemschool.com/math/formula/square_table/square_table_1.png'
+                })
+                //process.once(findDatabase(ThemeRadicals, 'Таблица квадратов'));
             break;
             case 'rad_4':
                 process.once(findDatabase(ThemeRadicals, 'Таблица кубов'));
