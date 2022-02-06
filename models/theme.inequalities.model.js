@@ -18,5 +18,4 @@ const inequalitiesButtons = {
     },
 }
 const ThemeIneq = mongoose.model('inequalities', ThemeSchema)
-//database.Theme_inequalities.forEach(f => new ThemeIneq(f).save())
 module.exports = {ThemeIneq, inequalitiesButtons}

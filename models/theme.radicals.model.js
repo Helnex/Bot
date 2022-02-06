@@ -19,5 +19,4 @@ const radicalsButtons = {
     },
 }
 const ThemeRadicals = mongoose.model('radicals', ThemeSchema)
-//database.Theme_radicals.forEach(f => new ThemeRadicals(f).save())
 module.exports = {ThemeRadicals, radicalsButtons}

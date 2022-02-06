@@ -18,5 +18,4 @@ const chanceButtons = {
     },
 }
 const ThemeChance = mongoose.model('chance', ThemeSchema)
-//database.Theme_chance.forEach(f => new ThemeChance(f).save())
 module.exports = {ThemeChance, chanceButtons}

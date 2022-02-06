@@ -18,5 +18,4 @@ const progressionButtons = {
     },
 }
 const ThemeProg = mongoose.model('progression', ThemeSchema)
-//database.Theme_inequalities.forEach(f => new ThemeProg(f).save())
 module.exports = {ThemeProg, progressionButtons}

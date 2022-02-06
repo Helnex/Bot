@@ -2,11 +2,8 @@ const TelegramApi = require('node-telegram-bot-api');
 const keyboardBtn = require('./bot_modules/keyboardButtons');
 const keyboard = require('./bot_modules/keyboard');
 const debug = require('./bot_modules/debugInfo');
-//const {TOKEN, DB_URL} = require('./config');
 const mongoose = require('mongoose');
-//const bot = new TelegramApi(TOKEN, {polling:true});
 const bot = new TelegramApi(process.env.TOKEN, {polling:true});
-
 const {ThemeFunc, functionsButtons} = require('./models/theme.functions.model');
 const {ThemeRadicals , radicalsButtons} = require('./models/theme.radicals.model');
 const {ThemeIneq, inequalitiesButtons} = require('./models/theme.inequalities.model');
@@ -14,10 +11,6 @@ const {ThemeChance, chanceButtons} = require('./models/theme.chance.model');
 const {ThemeComb, combinatoricsButtons} = require('./models/theme.combinatorics.model');
 const {ThemeProg, progressionButtons} = require('./models/theme.progression.model');
 
-//module.exports = debug
-/*mongoose.connect(DB_URL, {
-    useNewUrlParser: true
-})*/
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true
 })
@@ -70,11 +63,10 @@ ${resultLinks}`, {
                 process.once(findDatabase(ThemeRadicals, 'Кубический корень и его свойства'));
                 break;
             case 'rad_3':
-                bot.sendPhoto(chatId, 'https://ru.onlinemschool.com/math/formula/square_table/square_table_1.png')
-                //process.once(findDatabase(ThemeRadicals, 'Таблица квадратов'));
+                bot.sendPhoto(chatId, 'https://lh4.googleusercontent.com/proxy/0lmxuGW2TrzVI_uAnjoqz79pfAgpo2GKlvOqu6YF9dPcRdrTUEK_VRnfxAjzFvOA2SzY-buibmT65VIv7m0N-GKExB_7DGjiS9tI0CUzyrCvRrsqbOw7MuGeNiv4=w1200-h630-p-k-no-nu')
             break;
             case 'rad_4':
-                process.once(findDatabase(ThemeRadicals, 'Таблица кубов'));
+                bot.sendPhoto(chatId, 'https://doza.pro/art/math/algebra/img/table-cubes-1-1.png')
             break;
 
             case 'chan_1':
@@ -133,12 +125,13 @@ ${resultLinks}`, {
             break;
     }    
     bot.setMyCommands([
-            { command: '/start', description: 'Приветствие' },
+            { command: '/start', description: 'Начало работы' },
     ]);
     if (text === '/start') {
         return bot.sendMessage(chatId, `Привет, ${UserName}\nВыбери раздел:`, {
             reply_markup: { keyboard: keyboard.Home }      
         });
     }
+    return(bot.sendMessage(chatId, 'Я тебя не понимаю, выбери команду /start'))
 });
 
