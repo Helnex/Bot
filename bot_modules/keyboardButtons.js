@@ -34,7 +34,6 @@ module.exports = {
         prog_2: 'Решение задач',
     },
     Theme_combinatorics: {
-        comb_1: 'Определение',
-        comb_2: 'Решение задач',
+        comb_1: 'Решение задач',
     },
 }
