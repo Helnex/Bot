@@ -74,9 +74,6 @@ ${resultLinks}`, {
                 break;
 
             case 'comb_1':
-            process.once(findDatabase(ThemeComb, 'Определение'));
-                break;
-            case 'comb_2':
             process.once(findDatabase(ThemeComb, 'Решение задач'));
                 break;
 

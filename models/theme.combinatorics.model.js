@@ -13,7 +13,6 @@ const combinatoricsButtons = {
     reply_markup: {
         inline_keyboard: [
             [{text: keyboardBtn.Theme_combinatorics.comb_1, callback_data: "comb_1"}],
-            [{text: keyboardBtn.Theme_combinatorics.comb_2, callback_data: "comb_2"}],
         ]
     },
 }
