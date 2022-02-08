@@ -60,15 +60,12 @@ ${resultLinks}`, {
                 process.once(findDatabase(ThemeRadicals, 'Квадратный корень и его свойства'));
                 break;
             case 'rad_2':
-                process.once(findDatabase(ThemeRadicals, 'Кубический корень и его свойства'));
+                process.once(bot.sendPhoto(chatId, 'https://lh4.googleusercontent.com/proxy/0lmxuGW2TrzVI_uAnjoqz79pfAgpo2GKlvOqu6YF9dPcRdrTUEK_VRnfxAjzFvOA2SzY-buibmT65VIv7m0N-GKExB_7DGjiS9tI0CUzyrCvRrsqbOw7MuGeNiv4=w1200-h630-p-k-no-nu'))
                 break;
             case 'rad_3':
-                process.once(bot.sendPhoto(chatId, 'https://lh4.googleusercontent.com/proxy/0lmxuGW2TrzVI_uAnjoqz79pfAgpo2GKlvOqu6YF9dPcRdrTUEK_VRnfxAjzFvOA2SzY-buibmT65VIv7m0N-GKExB_7DGjiS9tI0CUzyrCvRrsqbOw7MuGeNiv4=w1200-h630-p-k-no-nu'))
-            break;
-            case 'rad_4':
                 process.once(bot.sendPhoto(chatId, 'https://doza.pro/art/math/algebra/img/table-cubes-1-1.png'))
             break;
-
+            
             case 'chan_1':
                 process.once(findDatabase(ThemeChance, 'Определение вероятности'));
                 break;

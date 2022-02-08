@@ -14,7 +14,6 @@ const radicalsButtons = {
             [{text: keyboardBtn.Theme_radicals.rad_1, callback_data: "rad_1"}],
             [{text: keyboardBtn.Theme_radicals.rad_2, callback_data: "rad_2"}],
             [{text: keyboardBtn.Theme_radicals.rad_3, callback_data: "rad_3"}],
-            [{text: keyboardBtn.Theme_radicals.rad_4, callback_data: "rad_4"}],
         ]
     },
 }
