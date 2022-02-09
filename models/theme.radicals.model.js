@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const keyboardBtn = require('../bot_modules/keyboardButtons');
-const database = require("../database.json");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const database = require("../database.json")
+const keyboardBtn = require('../bot_modules/keyboardButtons')
+
 const ThemeSchema = new Schema ({
     name: String,
     links: [String],
