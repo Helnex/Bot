@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const schema = mongoose.Schema
 const database = require("../database.json")
 const keyboardBtn = require('../bot_modules/keyboardButtons')
 
-const ThemeSchema = new Schema ({
+const themeSchema = new schema ({
     name: String,
     links: [String],
     short_description: String
@@ -18,5 +18,5 @@ const radicalsButtons = {
         ]
     },
 }
-const ThemeRadicals = mongoose.model('radicals', ThemeSchema)
-module.exports = {ThemeRadicals, radicalsButtons}
+const themeRadicals = mongoose.model('radicals', themeSchema)
+module.exports = {themeRadicals, radicalsButtons}

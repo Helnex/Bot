@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const schema = mongoose.Schema
 const database = require("../database.json")
 const keyboardBtn = require('../bot_modules/keyboardButtons')
 
-const ThemeSchema = new Schema ({
+const themeSchema = new schema ({
     name: String,
     links: [String],
     short_description: String,
@@ -17,5 +17,5 @@ const progressionButtons = {
         ]
     },
 }
-const ThemeProg = mongoose.model('progression', ThemeSchema)
-module.exports = {ThemeProg, progressionButtons}
+const themeProg = mongoose.model('progression', themeSchema)
+module.exports = {themeProg, progressionButtons}

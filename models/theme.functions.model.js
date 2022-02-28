@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const schema = mongoose.Schema
 const database = require("../database.json")
 const keyboardBtn = require('../bot_modules/keyboardButtons')
 
-const ThemeSchema = new Schema ({
+const themeSchema = new schema ({
     name: String,
     links: [String],
     short_description: String,
@@ -19,7 +19,7 @@ const functionsButtons = {
         ]
     },
 }
-const ThemeFunc = mongoose.model('functions', ThemeSchema)
+const themeFunc = mongoose.model('functions', themeSchema)
 //database.Theme_radicals.forEach(f => new ThemeFunc(f).save())
-module.exports = {ThemeFunc, functionsButtons}
+module.exports = {themeFunc, functionsButtons}
 

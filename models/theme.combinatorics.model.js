@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const schema = mongoose.Schema
 const database = require("../database.json")
 const keyboardBtn = require('../bot_modules/keyboardButtons')
 
-const ThemeSchema = new Schema ({
+const themeSchema = new schema ({
     name: String,
     links: [String],
     short_description: String,
@@ -16,5 +16,5 @@ const combinatoricsButtons = {
         ]
     },
 }
-const ThemeComb = mongoose.model('combinatorics', ThemeSchema)
-module.exports = {ThemeComb, combinatoricsButtons}
+const themeComb = mongoose.model('combinatorics', themeSchema)
+module.exports = {themeComb, combinatoricsButtons}

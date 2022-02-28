@@ -6,7 +6,9 @@
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "engines": {"node": "16.6.1"},
+  "engines": {
+    "node": "16.6.1"
+  },
   "author": "Stas",
   "license": "ISC",
   "dependencies": {
